@@ -1,0 +1,60 @@
+
+
+
+plugins {
+    id "java"
+    id 'org.springframework.boot' version '3.0.5'
+    id "io.spring.dependency-management" version "1.1.0"
+    id 'org.jetbrains.kotlin.jvm' version '1.6.20'
+
+
+
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+
+compileJava {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    options.compilerArgs << '-parameters'
+}
+
+ext {
+    springBootVersion = '3.0.5'
+    kotlinVersion = '1.6.20'
+    reactorKotlinVersion = '1.1.5'
+    mustacheVersion = '0.9.10'
+}
+
+
+dependencies {
+    implementation group: 'com.github.spullara.mustache.java', name: 'compiler', version: mustacheVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: springBootVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: springBootVersion
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-webflux', version: springBootVersion
+    implementation group: 'io.micrometer', name: 'micrometer-tracing-bridge-brave', version: '1.0.3'
+    implementation group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: kotlinVersion
+    implementation group: 'io.projectreactor.kotlin', name: 'reactor-kotlin-extensions', version: reactorKotlinVersion
+    implementation 'org.springframework.ws:spring-ws-support:4.0.0'
+    // your project dependencies
+    implementation 'io.swagger.core.v3:swagger-jaxrs2-jakarta:2.2.7'
+
+
+
+}
+
+
+
+
+
+
+
+
+
